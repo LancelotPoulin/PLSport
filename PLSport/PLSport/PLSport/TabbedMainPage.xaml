@@ -1,0 +1,290 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<BB:BottomBarPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:CC="clr-namespace:PLSport.CustomControls"
+            xmlns:BB="clr-namespace:BottomBar.XamarinForms;assembly=BottomBar.XamarinForms"
+            xmlns:MC="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+            x:Class="PLSport.TabbedMainPage"
+            NavigationPage.HasNavigationBar="False" BarTheme="Light" BarTextColor="#4169E1" >
+
+
+    <NavigationPage x:Name="MySeanceNavPage" Title="Mes séances" Icon="MySeance.png" BarBackgroundColor="White" BarTextColor="#4169E1" >
+        <x:Arguments>
+            <CarouselPage x:Name="MySeancePage" Title="Mes Séances" BackgroundColor="White" >
+
+
+                <ContentPage Appearing="HistoryPage_Appearing">
+                    <StackLayout>
+
+                        <ListView x:Name="HistoryListView" HasUnevenRows="True" RowHeight="80" IsPullToRefreshEnabled="True" Refreshing="ListView_Refreshing" SeparatorVisibility="None" BackgroundColor="White" VerticalOptions="FillAndExpand" IsGroupingEnabled="True" ItemSelected="HistoryListView_ItemSelected" >
+
+                            <ListView.GroupHeaderTemplate Height="35">
+                                <DataTemplate>
+                                    <ViewCell Height="35" >
+                                        <CC:RoundedCornerView BorderColor="#4169E1" BorderWidth="2"  BackgroundColor="Transparent" Margin="15, 12.5, 15, 0" VerticalOptions="FillAndExpand" RoundedCornerRadius="8">
+                                            <Grid BackgroundColor="#4169E1" RowSpacing="0" ColumnSpacing="0"  >
+
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="30" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label Grid.Column="0" Grid.Row="0" Text="{Binding Title}" HorizontalOptions="Center" FontSize="14" Margin="0, 1, 0, 0" TextColor="White" />
+
+                                            </Grid>
+                                        </CC:RoundedCornerView>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.GroupHeaderTemplate>
+
+                            <ListView.ItemTemplate Height="80">
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <CC:RoundedCornerView BorderColor="#4169E1" BorderWidth="6" BackgroundColor="Transparent" Margin="35, 7.5, 35, 0" VerticalOptions="FillAndExpand" RoundedCornerRadius="15" >
+                                            <Grid BackgroundColor="White" RowSpacing="0" ColumnSpacing="0" >
+
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="35" />
+                                                    <RowDefinition Height="35" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="70" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="60" />
+                                                    <ColumnDefinition Width="15" />
+                                                </Grid.ColumnDefinitions>
+
+                                                <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" VerticalOptions="Center" HorizontalOptions="Center" Source="{Binding TypePicture}" />
+
+                                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding Name}" FontSize="16" TextColor="Black" VerticalOptions="End" Margin="2.5, 0, 2.5, 0" />
+                                                <Label Grid.Column="1" Grid.Row="1" Text="{Binding Description}" FontSize="12" TextColor="DarkGray" VerticalOptions="Start" Margin="2.5, 0, 2.5, 0" />
+
+                                                <Image Grid.Column="2" Grid.Row="0" Margin="0, 0, 0, 2.5" VerticalOptions="End" HorizontalOptions="Start" Source="Time.png" />
+                                                <Label Grid.Column="2" Grid.Row="0" Margin="10, 0, 0, 0" Text="{Binding Time}" FontSize="13" TextColor="Black" VerticalOptions="End" />
+                                                <Label Grid.Column="2" Grid.Row="1" Text="{Binding Coach}" FontSize="13" TextColor="Black" VerticalOptions="Start" />
+
+                                                <BoxView Grid.Column="3" Grid.Row="0" Grid.RowSpan="2" Color="{Binding PlaceStatus}" />
+
+                                            </Grid>
+                                        </CC:RoundedCornerView>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        
+                    </StackLayout>
+                </ContentPage>
+
+
+                <ContentPage x:Name="SubscribedSeancePage" Appearing="MySeancePage_Appearing" >
+                    <StackLayout>
+
+                        <ListView x:Name="MySeanceListView" HasUnevenRows="True" RowHeight="80" IsPullToRefreshEnabled="True" Refreshing="ListView_Refreshing" SeparatorVisibility="None" BackgroundColor="White" VerticalOptions="FillAndExpand" IsGroupingEnabled="True" ItemSelected="ListView_ItemSelectedAsync" >
+
+                            <ListView.GroupHeaderTemplate Height="35">
+                                <DataTemplate>
+                                    <ViewCell Height="35" >
+                                        <CC:RoundedCornerView BorderColor="#4169E1" BorderWidth="2"  BackgroundColor="Transparent" Margin="15, 12.5, 15, 0" VerticalOptions="FillAndExpand" RoundedCornerRadius="8">
+                                            <Grid BackgroundColor="#4169E1" RowSpacing="0" ColumnSpacing="0"  >
+
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="30" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label Grid.Column="0" Grid.Row="0" Text="{Binding Title}" HorizontalOptions="Center" FontSize="14" Margin="0, 1, 0, 0" TextColor="White" />
+
+                                            </Grid>
+                                        </CC:RoundedCornerView>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.GroupHeaderTemplate>
+
+                            <ListView.ItemTemplate Height="80">
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <CC:RoundedCornerView BorderColor="#4169E1" BorderWidth="6" BackgroundColor="Transparent" Margin="35, 7.5, 35, 0" VerticalOptions="FillAndExpand" RoundedCornerRadius="15" >
+                                            <Grid BackgroundColor="White" RowSpacing="0" ColumnSpacing="0" >
+
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="35" />
+                                                    <RowDefinition Height="35" />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="70" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="60" />
+                                                    <ColumnDefinition Width="15" />
+                                                </Grid.ColumnDefinitions>
+
+                                                <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" VerticalOptions="Center" HorizontalOptions="Center" Source="{Binding TypePicture}" />
+
+                                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding Name}" FontSize="16" TextColor="Black" VerticalOptions="End" Margin="2.5, 0, 2.5, 0" />
+                                                <Label Grid.Column="1" Grid.Row="1" Text="{Binding Description}" FontSize="12" TextColor="DarkGray" VerticalOptions="Start" Margin="2.5, 0, 2.5, 0" />
+
+                                                <Image Grid.Column="2" Grid.Row="0" Margin="0, 0, 0, 2.5" VerticalOptions="End" HorizontalOptions="Start" Source="Time.png" />
+                                                <Label Grid.Column="2" Grid.Row="0" Margin="10, 0, 0, 0" Text="{Binding Time}" FontSize="13" TextColor="Black" VerticalOptions="End" />
+                                                <Label Grid.Column="2" Grid.Row="1" Text="{Binding Coach}" FontSize="13" TextColor="Black" VerticalOptions="Start" />
+
+                                                <BoxView Grid.Column="3" Grid.Row="0" Grid.RowSpan="2" Color="{Binding PlaceStatus}" />
+
+                                            </Grid>
+                                        </CC:RoundedCornerView>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                    </StackLayout>
+                </ContentPage>
+
+                
+            </CarouselPage>
+        </x:Arguments>
+    </NavigationPage>
+
+
+
+    <NavigationPage x:Name="EventNavPage" Title="Événements" Icon="Event.png" BarBackgroundColor="White" BarTextColor="#4169E1" >
+        <x:Arguments>
+            <ContentPage x:Name="EventPage" Title="Événements" BackgroundColor="White" Appearing="EventPage_Appearing" >
+                <StackLayout>
+
+
+                    <ListView x:Name="EventListView" HasUnevenRows="True" RowHeight="80" IsPullToRefreshEnabled="True" Refreshing="ListView_Refreshing" SeparatorVisibility="None" BackgroundColor="White" VerticalOptions="FillAndExpand" IsGroupingEnabled="True" ItemSelected="ListView_ItemSelectedAsync" >
+
+                        <ListView.GroupHeaderTemplate Height="35">
+                            <DataTemplate>
+                                <ViewCell Height="35" >
+                                    <CC:RoundedCornerView BorderColor="#4169E1" BorderWidth="2"  BackgroundColor="Transparent" Margin="15, 12.5, 15, 0" VerticalOptions="FillAndExpand" RoundedCornerRadius="8">
+                                        <Grid BackgroundColor="#4169E1" RowSpacing="0" ColumnSpacing="0"  >
+
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="30" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Grid.Column="0" Grid.Row="0" Text="{Binding Title}" HorizontalOptions="Center" FontSize="14" Margin="0, 1, 0, 0" TextColor="White" />
+
+                                        </Grid>
+                                    </CC:RoundedCornerView>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.GroupHeaderTemplate>
+
+                        <ListView.ItemTemplate Height="80">
+                            <DataTemplate>
+                                <ViewCell>
+                                    <CC:RoundedCornerView BorderColor="#4169E1" BorderWidth="6" BackgroundColor="Transparent" Margin="35, 7.5, 35, 0" VerticalOptions="FillAndExpand" RoundedCornerRadius="15" >
+                                        <Grid BackgroundColor="White" RowSpacing="0" ColumnSpacing="0" >
+
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="35" />
+                                                <RowDefinition Height="35" />
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="70" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="60" />
+                                                <ColumnDefinition Width="15" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Image Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" VerticalOptions="Center" HorizontalOptions="Center" Source="{Binding TypePicture}" />
+
+                                            <Label Grid.Column="1" Grid.Row="0" Text="{Binding Name}" FontSize="16" TextColor="Black" VerticalOptions="End" Margin="2.5, 0, 2.5, 0" />
+                                            <Label Grid.Column="1" Grid.Row="1" Text="{Binding Description}" FontSize="12" TextColor="DarkGray" VerticalOptions="Start" Margin="2.5, 0, 2.5, 0" />
+
+                                            <Image Grid.Column="2" Grid.Row="0" Margin="0, 0, 0, 2.5" VerticalOptions="End" HorizontalOptions="Start" Source="Time.png" />
+                                            <Label Grid.Column="2" Grid.Row="0" Margin="10, 0, 0, 0" Text="{Binding Time}" FontSize="13" TextColor="Black" VerticalOptions="End" />
+                                            <Label Grid.Column="2" Grid.Row="1" Text="{Binding Coach}" FontSize="13" TextColor="Black" VerticalOptions="Start" />
+
+                                            <BoxView Grid.Column="3" Grid.Row="0" Grid.RowSpan="2" Color="{Binding PlaceStatus}" />
+
+                                        </Grid>
+                                    </CC:RoundedCornerView>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+
+                </StackLayout>
+            </ContentPage>
+        </x:Arguments>
+    </NavigationPage>
+
+
+
+    <NavigationPage x:Name="ProfilNavPage" Title="Profil" Icon="Profil.png" BarBackgroundColor="White" BarTextColor="#4169E1" >
+        <x:Arguments>
+            <ContentPage x:Name="ProfilPage" Title="Profil" Appearing="ProfilPage_Appearing" BackgroundColor="#FFFFFF" >
+
+                <ScrollView>
+                    <StackLayout>
+
+                        <CC:RoundedCornerView BorderColor="#4169E1" BorderWidth="6"  BackgroundColor="Transparent" Margin="10, 12.5, 10, 0" VerticalOptions="FillAndExpand" RoundedCornerRadius="15">
+                            <StackLayout Orientation="Vertical"  HeightRequest="200" BackgroundColor="#4169E1">
+                                <Label Text="Évolution du poids (kg)" VerticalOptions="Center" TextColor="White" Margin="7.5, 2.5, 2.5, 0" />
+                                <MC:ChartView x:Name="WeightChartView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                                <StackLayout Orientation="Horizontal"  BackgroundColor="#4169E1" HeightRequest="50" >
+                                    <Entry Keyboard="Numeric" HorizontalTextAlignment="Center" x:Name="WeightEntry" Placeholder="Nouveau poids" BackgroundColor="#4169E1" TextColor="White" PlaceholderColor="WhiteSmoke" HorizontalOptions="FillAndExpand"  Margin="30, 5, 50, 5" />
+                                    <CC:RoundedCornerView BorderColor="White" BorderWidth="6" Margin="0, 6.5, 30, 6.5"  BackgroundColor="Transparent" VerticalOptions="FillAndExpand" RoundedCornerRadius="10">
+                                        <CC:ButtonTransparent Text="Ajouter" TextColor="White" Clicked="AddWeightButton_ClickedAsync" HorizontalOptions="FillAndExpand" />
+                                    </CC:RoundedCornerView>
+                                </StackLayout>
+                            </StackLayout>
+                        </CC:RoundedCornerView>
+
+                        <CC:RoundedCornerView BorderColor="#4169E1" BorderWidth="6"  BackgroundColor="Transparent" Margin="10, 5, 10, 5" VerticalOptions="FillAndExpand" RoundedCornerRadius="15">
+                            <StackLayout Orientation="Vertical"  HeightRequest="150" BackgroundColor="#4169E1" >
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Nombre de séances" VerticalOptions="Center" TextColor="White"  Margin="7.5, 2.5, 0, 2.5" />
+                                    <Label x:Name="SeanceNumberLabel"  Text="Total: 23" VerticalOptions="Center" HorizontalOptions="EndAndExpand" TextColor="White" Margin="0, 2.5, 7.5, 2.5" />
+                                </StackLayout>
+                                <MC:ChartView x:Name="HistoryChartView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+                            </StackLayout>
+                        </CC:RoundedCornerView>
+
+                        <TableView x:Name="ProfilTableView" Intent="Settings" BackgroundColor="#FFFFFF" >
+                            <TableRoot>
+
+                                <TableSection>
+
+                                    <TextCell x:Name="NameSurnameTextCell" Text="Nom et prénom" DetailColor="Black" TextColor="#4169E1" />
+                                    <TextCell x:Name="GenderTextCell" Text="Genre" DetailColor="Black" TextColor="#4169E1" />
+                                    <TextCell x:Name="YearsOldTextCell" Text="Âge" DetailColor="Black" TextColor="#4169E1" />
+                                    <TextCell x:Name="HeightTextCell" Text="Taille" DetailColor="Black" TextColor="#4169E1" />
+                                    <TextCell x:Name="StatusTextCell" Text="Statut" DetailColor="Black" TextColor="#4169E1" />
+                                    <TextCell x:Name="EmailTextCell"  Text="Email" DetailColor="Black" TextColor="#4169E1" />
+                                    <TextCell x:Name="PasswordTextCell"  Text="Mot de passe" DetailColor="Black" TextColor="#4169E1" />
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal" Padding="15, 5, 15, 5" >
+                                            <Label Text="Notifications" VerticalOptions="Center" TextColor="#4169E1" />
+                                            <Switch x:Name="NotifificationSwitchCell" VerticalOptions="Center" HorizontalOptions="EndAndExpand" />
+                                        </StackLayout>
+                                    </ViewCell>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal" >
+                                            <CC:ButtonTransparent Text="Conditions" TextColor="#4169E1" HorizontalOptions="FillAndExpand" Clicked="ConditionsButton_Clicked" />
+                                            <CC:ButtonTransparent Text="Se déconnecter" TextColor="#4169E1" HorizontalOptions="FillAndExpand" Clicked="DisconnectButton_ClickedAsync" />
+                                        </StackLayout>
+                                    </ViewCell>
+                                </TableSection>
+
+                            </TableRoot>
+                        </TableView>
+
+                    </StackLayout>
+                </ScrollView>
+
+            </ContentPage>
+        </x:Arguments>
+    </NavigationPage>
+
+
+</BB:BottomBarPage>

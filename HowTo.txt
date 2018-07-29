@@ -1,0 +1,32 @@
+Copier le dossier PLSport situé dans le dossier WebService directement dans www (localhost/PLSport/WebService/...)
+
+Dans info.php vous pouvez changez le user et password mysql
+
+Importer le fichier plsport_test.sql dans phpmyadmin
+
+Dans visual studio (la solution), dans le fichier App.xaml.cs vous devez changer l'adresse IP sur votre adresse IP local
+
+Déployer la solution (clique droit projet PLSport.Android, deploy) sur l'émulateur Android ou en mode debug
+
+Une fois l'application ouverte, vous pouvez créer votre compte utilisateur (Nouveau ici? Inscrivez vous!) puis vous connecter
+
+Sur le premiere onglet, il y a les séances auquel vous etes inscrit, si vous glisser de gauche a droite, il y a l'historique de vos séances (séance déja effectué)
+
+Sur le deuxieme onglet, il y a les séances a venir groupé par jour, vous pouvez vous inscire en cliquant dessus et vous désinscrire en recliquant
+L'image indique le type de la séance (Musculation, Fitness, sortie exterieur), il y a la nom et la description, l'heure et le nom du coach
+Le voyant vert signifie qu'il y a de la place, le orange qu'il reste moins de 3 places, le rouge qu'il n'y a plus de place, le bleu que vous etes inscrit
+
+En retournant sur le premiere onglet vous verrez les séances auquel vous vous etes inscrites et vous pouvez aussi vous désinscire a partir de cette onglet
+
+Dans l'onglet profil vous y trouverez un chart d'évolution de votre poids par date, vous pouvez ajouter un poids, la mise a jour est automatique
+Le deuxieme graphique indique le nombre de séance faite au cours des 5 derniers mois (historique)
+Vous avez toutes les informations vous concernant, et vous pouvez vous déconnecter
+
+Vous pouvez vous connecter en tant que coach: mail: lancelot@poulin.fr, mot de passe: lancelot
+Vous pouvez voir son historique, ses séances créés, et sa page de profil qui est plus complet.
+Sur l'onglet événement, il y a un nouveau bouton en haut a droite permettant de créer une séance.
+Remplissez le formulaire et ajouter l'événement, les autres utlisateurs peuvent désormais s'inscire a votre événement.
+Pour supprimer votre événement, cliquer dessus comme pour se désinscrire, un message de confirmation apparait.
+Les listes peuvent etre mis a jour en glissant vers le bas.
+
+Lancelot POULIN

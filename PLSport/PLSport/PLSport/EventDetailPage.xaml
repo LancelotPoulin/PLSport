@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PLSport.EventDetailPage"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             xmlns:CC="clr-namespace:PLSport.CustomControls"
+              Title="Nouvel événement" BackgroundColor="#4169E1">
+
+    <StackLayout>
+
+        <TableView Intent="Form" RowHeight="60">
+            <TableRoot>
+
+                <TableSection Title="Informations" >
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="15, 5, 15, 5" >
+                            <Label Text="Type" VerticalOptions="Center" TextColor="White" />
+                            <Picker x:Name="TypePicker" SelectedIndex="0" HorizontalOptions="EndAndExpand" VerticalOptions="Center" WidthRequest="130" TextColor="White" />
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="15, 5, 15, 5" >
+                            <Label Text="Nom" VerticalOptions="Center" TextColor="White"  />
+                            <Entry x:Name="NameEntry" HorizontalOptions="EndAndExpand" VerticalOptions="Center" HorizontalTextAlignment="Center" Placeholder="Fitness, sortie..." WidthRequest="200" TextColor="White" BackgroundColor="Transparent" PlaceholderColor="LightGray" />
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="15, 5, 15, 5" >
+                            <Label Text="Description" VerticalOptions="Center" TextColor="White"  />
+                            <Entry x:Name="DescriptionEntry" HorizontalOptions="EndAndExpand" VerticalOptions="Center" HorizontalTextAlignment="Center" Placeholder="Quoi, lieu..." WidthRequest="200" TextColor="White" BackgroundColor="Transparent" PlaceholderColor="LightGray" />
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="15, 5, 15, 5" >
+                            <Label Text="Place" VerticalOptions="Center" TextColor="White"  />
+                            <Entry x:Name="PlaceEntry" Keyboard="Numeric" HorizontalOptions="EndAndExpand" VerticalOptions="Center" HorizontalTextAlignment="Center" Placeholder="5, 10, 20..." WidthRequest="200" TextColor="White" BackgroundColor="Transparent" PlaceholderColor="LightGray" />
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="15, 5, 15, 5" >
+                            <Label Text="Date et heure" VerticalOptions="Center" TextColor="White" />
+                            <DatePicker x:Name="DatePicker" MinimumDate="{x:Static System:DateTime.Now}" WidthRequest="130" Format="ddd d MMM" HorizontalOptions="EndAndExpand" VerticalOptions="Center" TextColor="White" />
+                            <TimePicker x:Name="TimePicker" Format="HH:mm" HorizontalOptions="EndAndExpand" VerticalOptions="Center" TextColor="White" />
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="15, 5, 15, 5" >
+                            <Label Text="Coach" VerticalOptions="Center" TextColor="White"  />
+                            <Entry x:Name="CoachEntry" IsEnabled="False" HorizontalOptions="EndAndExpand" VerticalOptions="Center" HorizontalTextAlignment="Center" WidthRequest="200" TextColor="White" BackgroundColor="Transparent"/>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+
+            </TableRoot>
+        </TableView>
+
+        <StackLayout HorizontalOptions="Center" Margin="0, 0, 0, 30">
+            <CC:RoundedCornerView BorderColor="White" BorderWidth="4"  BackgroundColor="Transparent" VerticalOptions="FillAndExpand" RoundedCornerRadius="15" Margin="70, 0, 70, 0">
+                <CC:ButtonTransparent Text="Ajouter" Clicked="AddButton_ClickedAsync" TextColor="White" />
+            </CC:RoundedCornerView>
+            <Label Text="Vous pouvez a tout moment supprimer votre événement." TextColor="LightGray" FontSize="11" HorizontalOptions="Center" />
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>

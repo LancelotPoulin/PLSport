@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:CC="clr-namespace:PLSport.CustomControls"
+             xmlns:IC="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+             xmlns:System="clr-namespace:System;assembly=mscorlib"
+             x:Class="PLSport.SignInPage"
+             BackgroundColor="White" >
+
+    
+    
+    <Grid RowSpacing="10" ColumnSpacing="0" >
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="2*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="4*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <IC:CircleImage Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"  Source="icon.png" Aspect="AspectFit" HeightRequest="30" WidthRequest="30" />
+        <Label Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"  Text="Prêt à être en PLS ?" FontSize="22" TextColor="#4169E1" VerticalOptions="Center" HorizontalOptions="Center" />
+
+
+        <CC:EntryL x:Name="NameEntry" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" TextColor="#4169E1" Placeholder="Votre nom" FontSize="18" Keyboard="Url" HorizontalOptions="FillAndExpand" />
+        <Image Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Source="Profil.png" HorizontalOptions="Start" Margin="5" />
+        <CC:EntryL x:Name="SurnameEntry" Grid.ColumnSpan="2" Grid.Row="4" Grid.Column="1" TextColor="#4169E1" Placeholder="Votre prénom" FontSize="18" Keyboard="Url" HorizontalOptions="FillAndExpand" />
+        <Image Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Source="Profil.png" HorizontalOptions="Start" Margin="5" />
+        <CC:EntryL x:Name="MailEntry" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" TextColor="#4169E1" Keyboard="Email" Placeholder="Votre mail" FontSize="18" HorizontalOptions="FillAndExpand" />
+        <Image Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Source="Mail.png" HorizontalOptions="Start" Margin="5" />
+        <CC:EntryL x:Name="PasswordEntry" IsPassword="True" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" TextColor="#4169E1" Placeholder="Mot de passe" FontSize="18" HorizontalOptions="FillAndExpand" />
+        <Image Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Source="Password.png" HorizontalOptions="Start" Margin="5" />
+
+        <Picker x:Name="GenderPicker" Grid.Row="7" Grid.Column="1" TextColor="#4169E1" HorizontalOptions="FillAndExpand" Margin="40, 0, 0, 0" />
+        <Image Grid.Row="7" Grid.Column="1" Source="Gender.png" HorizontalOptions="Start" Margin="5" />
+        <DatePicker x:Name="BirthdayPicker" Grid.Row="7" Grid.Column="2" TextColor="#4169E1" MaximumDate="{x:Static System:DateTime.Now}"  Format="d MMM yyyy" HorizontalOptions="FillAndExpand" Margin="40, 0, 0, 0" />
+        <Image Grid.Row="7" Grid.Column="2" Source="Birthday.png" HorizontalOptions="Start" Margin="5" />
+        <Picker x:Name="HeightPicker" Grid.Row="8" Grid.Column="1" TextColor="#4169E1" HorizontalOptions="FillAndExpand" Margin="40, 0, 0, 0" />
+        <Image Grid.Row="8" Grid.Column="1" Source="Height.png" HorizontalOptions="Start" Margin="5" />
+        <Picker x:Name="WeightPicker" Grid.Row="8" Grid.Column="2" TextColor="#4169E1" HorizontalOptions="FillAndExpand" Margin="40, 0, 0, 0" />
+        <Image Grid.Row="8" Grid.Column="2" Source="Weight.png" HorizontalOptions="Start" Margin="5" />
+
+        <CC:ButtonL x:Name="SignInButton" Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="2" Text="S'inscrire" TextColor="White" BackgroundColor="#4169E1" FontSize="20" Clicked="SignInButton_ClickedAsync" VerticalOptions="Start" />
+        <Image Grid.Row="10" Grid.Column="1" Source="Connect.png" HorizontalOptions="Start" Margin="5" />
+
+    </Grid>
+
+</ContentPage>
